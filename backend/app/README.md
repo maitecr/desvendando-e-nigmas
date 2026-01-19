@@ -1,9 +1,9 @@
 # BACKEND
 
-InstruçÕes de instalação e execução do backend.
+Instruções de instalação e execução do backend.
 
 ## Requisitos
-* uv manager: [instalação](https://docs.astral.sh/uv/getting-started/installation/)
+* [uv](https://docs.astral.sh/uv/getting-started/installation/)
 * [FastAPI](https://fastapi.tiangolo.com/)
 * [uvicorn](https://uvicorn.dev/)
 
@@ -23,5 +23,11 @@ uv pip install uvicorn
 ```
 uv run fastapi dev app/main.py
 ```
-* Acessar a URL: `http://localhost:8000`
-* Documentação automática gerada pela FastAPI: `http://localhost:8000/docs`
+* Acessar a URL: 
+```
+http://localhost:8000
+```
+* Documentação automática gerada pela FastAPI: 
+```
+http://localhost:8000/docs
+```
