@@ -8,21 +8,13 @@ As seguintes instruções de instalação e execução **devem ser feitas dentro
 * [uvicorn](https://uvicorn.dev/)
 * [SQLAlchemy](https://www.sqlalchemy.org/)
 * [Alembic](https://alembic.sqlalchemy.org/en/latest/)
-* PyMySQL
+* [PyMySQL](https://pypi.org/project/PyMySQL/)
 
 ## Preparação do ambiente
 * Instalar `uv`
 * Criar Ambiente Virtual
 ```
 uv venv
-```
-* Instalar `FastAPI`:
-```
-uv pip install 'fastapi[standart]'
-```
-* Instalar `uvicorn`:
-```
-uv pip install uvicorn
 ```
 * Excutar comando:
 ```
@@ -31,6 +23,8 @@ uv pip install -r requirements.txt
 
 ### NOTA 
 Ao executar o comando `uv pip install -r requirements.txt`, deve ter sido instalado as dependências:
+* FatAPI
+* Uvicorn
 * SQLAlchemy
 * PyMySQL
 * Alembic
