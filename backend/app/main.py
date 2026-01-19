@@ -9,13 +9,3 @@ app = FastAPI()
 @app.get("/")
 def raiz():
     return {"mensagem": "Testando inicialização de projeto FastAPI"}
-
-
-# Para rodar esta API, execute no terminal (a partir da raiz do projeto):
-# uv run fastapi dev app/main.py
-#
-# Depois acesse no navegador:
-# http://localhost:8000
-#
-# Para ver a documentação automática:
-# http://localhost:8000/docs
