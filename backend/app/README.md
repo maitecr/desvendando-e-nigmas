@@ -31,6 +31,11 @@ Ao executar o comando `uv pip install -r requirements.txt`, deve ter sido instal
 * Pydantic
 * Websockets
 
+### Quando incluir nova dependência ao projeto, executar o comando:
+```
+uv freeze > requirements
+```
+
 ## Conectar com Banco de Dados usando PyMySQL
 * No diretório `backend` criar o arquivo `.env`
 * Incluir a constante `DATABASE_URL=mysql+pymysql://seu_usuario:sua_senha@localhost/nome_do_banco`
@@ -45,7 +50,7 @@ uv run fastapi dev app/main.py
 ```python
 http://localhost:8000
 
-# Deverá retornar o json "{"db":"conectado"}"  
+# Deverá retornar o json "{"mensagem": "Testando inicialização de projeto FastAPI"}"
 ```
 
 * Acessar a URL:
