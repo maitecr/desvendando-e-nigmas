@@ -10,4 +10,4 @@ Projeto em desenvolvido com objetivo de receber aprovação no curso de graduaç
 * Conexão ao MariaDB com SQLAlchemy
 * Aplicação de Migrations com Alembic e SQLAlchemy
 
-Acesse o [README.md](https://github.com/maitecr/desvendando-e-nigmas/blob/main/backend/app/README.md) para executar o projetol
+Acesse o [README.md](https://github.com/maitecr/desvendando-e-nigmas/blob/main/backend/README.md) para executar o projetol
