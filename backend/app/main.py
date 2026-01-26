@@ -1,19 +1,19 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-from database.connection import engine
 from sqlalchemy import text
+import database as db
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     yield
-    engine.dispose()  
+    db.engine.dispose()  
 
 app = FastAPI(lifespan=lifespan)
 
 @app.get("/db-test")
 def db_test():
     try:
-        with engine.connect() as conn:
+        with db.engine.connect() as conn:
             conn.execute(text("SELECT 1"))
         return {"db": "conectado"}
     except Exception as e:

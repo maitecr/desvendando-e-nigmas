@@ -10,7 +10,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from app.database.connection import Base, engine
+import app.database as db
 import app.models
 
 # this is the Alembic Config object, which provides
@@ -26,7 +26,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = Base.metadata
+target_metadata = db.Base.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
@@ -66,7 +66,7 @@ def run_migrations_online() -> None:
 
     """
     # Adição do 'engine' para conexão com DB pelo módulo 'database/connection.py'
-    connectable = engine
+    connectable = db.engine
 
     with connectable.connect() as connection:
         context.configure(
