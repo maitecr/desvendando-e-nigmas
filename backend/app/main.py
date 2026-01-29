@@ -9,10 +9,13 @@ async def lifespan(app: FastAPI):
     yield
     engine.dispose()  
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(
+    title="Desvendando E-nigmas",
+    description="API de backend para gerenciar dados do jogo mobile Desvendando E-nigmas",
+    lifespan=lifespan
+    )
 
 app.include_router(routers.router)
-
 
 @app.get("/db-test")
 def db_test():
@@ -24,7 +27,7 @@ def db_test():
         return {"db": "erro", "detalhe": str(e)}
 
 @app.get("/")
-def raiz():
+def main():
     return {"mensagem": "Testando inicialização de projeto FastAPI"}
 
 

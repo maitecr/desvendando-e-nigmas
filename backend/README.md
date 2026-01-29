@@ -86,3 +86,7 @@ alembic revision --autogenerate -m "sua mensagem aqui"
 ```
 alembic upgrade head
 ```
+* Desativar o ambiente virtual antes de [iniciar a aplicação]():
+```
+.venv\Scripts\deactivate
+```
