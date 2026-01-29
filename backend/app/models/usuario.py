@@ -1,6 +1,10 @@
 from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy.orm import relationship
 from app.database.connection import Base
+from app.models.enigma import Enigma
+from app.models.lista_contato import Lista_Contato
+from app.models.mensagem import Mensagem
+from app.models.partida import Partida
 
 class Usuario(Base):
     __tablename__ = "tb_usuario"
@@ -15,36 +19,31 @@ class Usuario(Base):
 
     # Relação Mãe-Filha
     usuario_como_proprietario = relationship(
-        "ListaContato",
-        foreign_keys="ListaContato.id_proprietario",
+        "Lista_Contato",
+        foreign_keys="Lista_Contato.id_proprietario",
         back_populates="proprietario",
-        cascade="all, delete-orphan"
     )
 
     usuario_como_anfitriao = relationship(
         "Partida",
         foreign_keys="Partida.id_anfitriao",
         back_populates="anfitriao",
-        cascade="all, delete-orphan"
     )
 
     usuario_como_convidado = relationship(
         "Partida",
         foreign_keys="Partida.id_convidado",
         back_populates="convidado",
-        cascade="all, delete-orphan"
     )
 
     autor_do_enigma = relationship(
         "Enigma",
         foreign_keys="Enigma.id_autor",
         back_populates="autoria",
-        cascade="all, delete-orphan"
     )
 
-    enviada_pelo_usuario = relationship(
+    mensagens_do_usuario = relationship(
         "Mensagem",
         foreign_keys="Mensagem.id_usuario",
         back_populates="enviada_pelo_usuario",
-        cascade="all, delete-orphan"
     )

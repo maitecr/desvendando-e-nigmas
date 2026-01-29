@@ -1,13 +1,11 @@
 from fastapi import APIRouter, Depends
-import database as db
+from app.database.crud.usuario_repository import UsuarioRepository
+from app.database.connection import get_db
 
 router = APIRouter(prefix="/usuarios")
 
-repository = db.UsuarioRepository()
+repository = UsuarioRepository()
 
 @router.get("/")
-def get_all_usuarios(conn = Depends(db.get_db)):
+def get_all_usuarios(conn=Depends(get_db)):
     return repository.read(conn)
-
-
-
