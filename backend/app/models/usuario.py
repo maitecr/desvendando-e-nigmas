@@ -1,10 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy.orm import relationship
 from app.database.connection import Base
-from app.models.enigma import Enigma
-from app.models.lista_contato import Lista_Contato
-from app.models.mensagem import Mensagem
-from app.models.partida import Partida
 
 class Usuario(Base):
     __tablename__ = "tb_usuario"
@@ -14,9 +10,8 @@ class Usuario(Base):
     nm_username = Column(String(16), nullable=False)
     dsc_email = Column(String(30), nullable=False, unique=True)
     pw_senha = Column(String(16), nullable=False)
-    st_partida = Column(Boolean, nullable=False, default=False)
-
-
+    
+    
     # Relação Mãe-Filha
     usuario_como_proprietario = relationship(
         "Lista_Contato",
