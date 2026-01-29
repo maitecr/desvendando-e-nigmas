@@ -15,7 +15,7 @@ class Mensagem(Base):
     enviada_pelo_usuario = relationship(
         "Usuario",
         foreign_keys=[id_usuario],
-        back_populates="mensagem_do_usuario"
+        back_populates="mensagens_do_usuario"
     )
 
     mensagem_na_partida = relationship(

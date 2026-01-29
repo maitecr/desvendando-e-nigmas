@@ -1,3 +1,7 @@
-from .usuario import get_all_usuarios
+from fastapi import APIRouter
+from .usuario import router as usuario_router
 
-__all__ = ["get_all_usuarios"]
+router = APIRouter()
+router.include_router(usuario_router)
+
+__all__ = ["router"]

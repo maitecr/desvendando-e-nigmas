@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from app.database.connection import Base
+from app.models.partida import Partida
 
 class Enigma(Base):
     __tablename__ = "tb_enigma"
@@ -19,8 +20,6 @@ class Enigma(Base):
 
     # Relação Mãe-Filha 
     enigma_na_partida = relationship(
-        "Enigma",
-        foreign_keys="Enigma.id_enigma",
+        "Partida",
         back_populates="enigma",
-        cascade="all, delete-orphan"
     )

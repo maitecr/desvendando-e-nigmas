@@ -1,9 +1,8 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from sqlalchemy import text
-from database.connection import engine
-
-# import routers as router
+from app.database.connection import engine
+from app.routers import usuario as routers
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -12,7 +11,8 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
-# app.include_router(router.get_all_usuarios)
+app.include_router(routers.router)
+
 
 @app.get("/db-test")
 def db_test():
@@ -26,3 +26,5 @@ def db_test():
 @app.get("/")
 def raiz():
     return {"mensagem": "Testando inicialização de projeto FastAPI"}
+
+

@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, DateTime, ForeignKey, func
 from sqlalchemy.orm import relationship
 from app.database.connection import Base
+from app.models.mensagem import Mensagem
 
 class Partida(Base):
     __tablename__ = "tb_partida"
@@ -16,7 +17,7 @@ class Partida(Base):
     enigma = relationship(
         "Enigma",
         foreign_keys=[id_enigma],
-        back_populates=["enigma_na_partida"]
+        back_populates="enigma_na_partida"
     )
 
     anfitriao = relationship(
@@ -34,7 +35,5 @@ class Partida(Base):
     # Relação Mãe-Filha
     mensagem_da_partida = relationship(
         "Mensagem",
-        foreign_keys=["Mensagem.id_mensagem"],
         back_populates="mensagem_na_partida",
-        cascade="all, delete-orphan"
     )
